@@ -1,15 +1,23 @@
 import React from "react";
 import { useState } from "react";
 
-function FormAdd(handleAddProg) {
+function FormAdd({ handleAddProg }) {
   const [levelCheck, setLevelCheck] = useState("junior");
-  const [progName, setName] = useState("");
+  const [progName, setProgName] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    handleAddProg({ name: progName, level: levelCheck });
-    setName("");
-    setLevelCheck("junior");
+    if (progName.length > 4) {
+      handleAddProg({ name: progName, level: levelCheck });
+      setProgName("");
+      setLevelCheck("junior");
+    } else {
+      alert("Prosím zadejte jméno. Minimální počet znaků je 5.");
+    }
+  };
+
+  const handleNameChange = (event) => {
+    setProgName(event.target.value);
   };
 
   return (
@@ -34,6 +42,8 @@ function FormAdd(handleAddProg) {
                     id="name"
                     aria-describedby="name"
                     placeholder=""
+                    onChange={handleNameChange}
+                    value={progName}
                   />
                 </div>
                 {/* level radio */}
@@ -69,7 +79,7 @@ function FormAdd(handleAddProg) {
 
                   {/* add button */}
                   <button
-                    type="button"
+                    type="submit"
                     className="btn btn-primary"
                     name="addProg"
                     id="addProg"

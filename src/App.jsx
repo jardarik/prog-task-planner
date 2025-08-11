@@ -7,13 +7,27 @@ import FormAdd from "./components/FormAdd";
 
 function App() {
   const [teamData, setTeamData] = useState(jsonData);
+  // const [newProg, setNewProg] = useState("");
 
   const handleDelete = (idToDel) => {
     const temp = teamData.filter((item) => item.id !== idToDel);
     setTeamData(temp);
     // setCarsToShow(temp);
   };
-  const handleAddProg = () => {};
+  const handleAddProg = (prog) => {
+    const temp = [
+      ...teamData,
+      {
+        id:
+          teamData.length > 0
+            ? Math.max(...teamData.map((car) => car.id)) + 1
+            : 1,
+        name: prog.name,
+        level: prog.level,
+      },
+    ];
+    setTeamData(temp);
+  };
   return (
     <div className="container">
       {/* hlavička */}
