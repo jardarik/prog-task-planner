@@ -22,7 +22,7 @@ function TeamList({ data, handleDelete }) {
                   <td>
                     <button
                       className="btn btn-danger btn-sm"
-                      onChange={() => handleDelete(item.id)}
+                      onClick={() => handleDelete(item.id)}
                     >
                       Smaž
                     </button>
