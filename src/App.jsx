@@ -13,6 +13,7 @@ function App() {
     setTeamData(temp);
     // setCarsToShow(temp);
   };
+  const handleAddProg = () => {};
   return (
     <div className="container">
       {/* hlavička */}
@@ -34,7 +35,7 @@ function App() {
       {/* Team list */}
       <div className="row">
         <TeamList data={teamData} handleDelete={handleDelete} />
-        <FormAdd />
+        <FormAdd handleAddProg={handleAddProg} />
       </div>
     </div>
   );

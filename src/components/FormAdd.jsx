@@ -1,15 +1,24 @@
 import React from "react";
 import { useState } from "react";
 
-function FormAdd(handleNewData) {
+function FormAdd(handleAddProg) {
   const [levelCheck, setLevelCheck] = useState("junior");
+  const [progName, setName] = useState("");
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    handleAddProg({ name: progName, level: levelCheck });
+    setName("");
+    setLevelCheck("junior");
+  };
+
   return (
     <div>
       {/* formular pro pridani programatora do team */}
 
       <div className="container">
         <div className="row">
-          <form action="submit">
+          <form onSubmit={handleSubmit}>
             <fieldset className="border rounded p-3">
               <legend>Přidání nového programátora</legend>
               <div className="row">
