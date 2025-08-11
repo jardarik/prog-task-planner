@@ -51,7 +51,11 @@ function FormProject({ data }) {
   return (
     <form>
       <fieldset className="border rounded p-3">
-        <legend>Your task</legend>
+        <div className="row mb-3">
+          <div className="col text-center">
+            <legend className="h3">Your task</legend>
+          </div>
+        </div>
 
         {/* <div className="col"> */}
         {/* <div className="h2 text-center">Your task</div> */}
@@ -86,7 +90,7 @@ function FormProject({ data }) {
               type="button"
               className={`btn ${
                 isApproved === true ? "btn-success" : "btn-danger disabled"
-              } ms-5 me-5`}
+              }`}
               onClick={handleOnClick}
               id="doit"
               name="doit"
