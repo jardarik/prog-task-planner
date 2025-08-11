@@ -4,6 +4,7 @@ import "./App.css";
 import TeamList from "./components/TeamList";
 import jsonData from "./team_data.json";
 import FormAdd from "./components/FormAdd";
+import FormProject from "./components/FormProject";
 
 function App() {
   const [teamData, setTeamData] = useState(jsonData);
@@ -46,10 +47,14 @@ function App() {
           </button>
         </div>
       </div>
-      {/* Team list */}
+      {/* Team list and formadd */}
       <div className="row">
         <TeamList data={teamData} handleDelete={handleDelete} />
         <FormAdd handleAddProg={handleAddProg} />
+      </div>
+      {/* Project planning */}
+      <div className="row">
+        <FormProject data={teamData} />
       </div>
     </div>
   );
