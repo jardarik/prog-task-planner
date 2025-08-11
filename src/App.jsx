@@ -3,8 +3,16 @@ import { useState } from "react";
 import "./App.css";
 import TeamList from "./components/TeamList";
 import jsonData from "./team_data.json";
+import FormAdd from "./components/FormAdd";
 
 function App() {
+  const [teamData, setTeamData] = useState(jsonData);
+
+  const handleDelete = (idToDel) => {
+    const temp = teamData.filter((item) => item.id !== idToDel);
+    setTeamData(temp);
+    // setCarsToShow(temp);
+  };
   return (
     <div className="container">
       {/* hlavička */}
@@ -23,9 +31,10 @@ function App() {
           </button>
         </div>
       </div>
-      {/* data */}
+      {/* Team list */}
       <div className="row">
-        <TeamList data={jsonData} />
+        <TeamList data={teamData} handleDelete={handleDelete} />
+        <FormAdd />
       </div>
     </div>
   );
