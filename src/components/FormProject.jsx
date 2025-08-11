@@ -18,6 +18,7 @@ function FormProject({ data }) {
     if (totalLinesPerDay >= lines / days) {
       setIsApproved(true);
       console.log("Plán je schválený");
+      alert("Plán je splněn.");
     } else {
       setIsApproved(false);
       console.log("Plán není schválený");
@@ -48,56 +49,54 @@ function FormProject({ data }) {
   }, [lines, days, data]);
 
   return (
-    <div className="container">
-      <form>
-        <fieldset className="border rounded p-3">
-          <legend>Your task</legend>
+    <form>
+      <fieldset className="border rounded p-3">
+        <legend>Your task</legend>
 
-          {/* <div className="col"> */}
-          {/* <div className="h2 text-center">Your task</div> */}
-          {/* </div> */}
-          <div className="row">
-            <div className="col d-flex align-items-center gap-3">
-              <label htmlFor="lines" className="form-label">
-                Lines of code:
-              </label>
-              <input
-                type="number"
-                className="form-control"
-                name="lines"
-                id="lines"
-                onChange={handleChange}
-                value={lines}
-              />
-            </div>
-            <div className="col d-flex align-items-center gap-3">
-              <label htmlFor="days" className="form-label">
-                Time limit [days]:
-              </label>
-              <input
-                type="number"
-                className="form-control"
-                name="days"
-                id="days"
-                onChange={handleChange}
-                value={days}
-              />
-              <button
-                type="button"
-                className={`btn ${
-                  isApproved === true ? "btn-success" : "btn-danger disabled"
-                }`}
-                onClick={handleOnClick}
-                id="doit"
-                name="doit"
-              >
-                Do it
-              </button>
-            </div>
+        {/* <div className="col"> */}
+        {/* <div className="h2 text-center">Your task</div> */}
+        {/* </div> */}
+        <div className="row">
+          <div className="col d-flex align-items-center gap-3">
+            <label htmlFor="lines" className="form-label">
+              Lines of code:
+            </label>
+            <input
+              type="number"
+              className="form-control w-25"
+              name="lines"
+              id="lines"
+              onChange={handleChange}
+              value={lines}
+            />
           </div>
-        </fieldset>
-      </form>
-    </div>
+          <div className="col d-flex align-items-center gap-3">
+            <label htmlFor="days" className="form-label">
+              Time limit [days]:
+            </label>
+            <input
+              type="number"
+              className="form-control w-25"
+              name="days"
+              id="days"
+              onChange={handleChange}
+              value={days}
+            />
+            <button
+              type="button"
+              className={`btn ${
+                isApproved === true ? "btn-success" : "btn-danger disabled"
+              } ms-5 me-5`}
+              onClick={handleOnClick}
+              id="doit"
+              name="doit"
+            >
+              Do it
+            </button>
+          </div>
+        </div>
+      </fieldset>
+    </form>
   );
 }
 
