@@ -3,21 +3,23 @@ import React, { useEffect, useState } from "react";
 function FormProject({ data }) {
   const [lines, setLines] = useState("");
   const [days, setDays] = useState("");
+  const [isApproved, setIsApproved] = useState(false);
 
-  //   useEffect(() => {
-  //     // Tady můžeš reagovat na změnu počtu programátorů
-  //     console.log("Počet programátorů:", data.length);
-  //   }, [data]);
-
+  // Funkce pro výpočet celkového počtu řádků za den
+  const getTotalLinesPerDay = () => {
+    return data.reduce(
+      (sum, prog) => sum + (prog.level === "senior" ? 200 : 100),
+      0
+    );
+  };
   const handleOnClick = () => {
-    let totalLinesPerDay = 0;
-    data.forEach((prog) => {
-      totalLinesPerDay += prog.level === "senior" ? 200 : 100;
-    });
+    const totalLinesPerDay = getTotalLinesPerDay();
     console.log("Celkový počet řádků za den:", totalLinesPerDay);
-    if (totalLinesPerDay > lines / days) {
+    if (totalLinesPerDay >= lines / days) {
+      setIsApproved(true);
       console.log("Plán je schválený");
     } else {
+      setIsApproved(false);
       console.log("Plán není schválený");
     }
   };
@@ -35,6 +37,15 @@ function FormProject({ data }) {
         break;
     }
   };
+
+  useEffect(() => {
+    const totalLinesPerDay = getTotalLinesPerDay();
+    if (lines > 0 && days > 0) {
+      setIsApproved(totalLinesPerDay >= lines / days);
+    } else {
+      setIsApproved(false);
+    }
+  }, [lines, days, data]);
 
   return (
     <div className="container">
@@ -73,8 +84,12 @@ function FormProject({ data }) {
               />
               <button
                 type="button"
-                className="btn btn-primary"
+                className={`btn ${
+                  isApproved === true ? "btn-success" : "btn-danger disabled"
+                }`}
                 onClick={handleOnClick}
+                id="doit"
+                name="doit"
               >
                 Do it
               </button>
