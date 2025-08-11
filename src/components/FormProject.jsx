@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 
 function FormProject({ data }) {
-  const [lines, setLines] = useState("");
-  const [days, setDays] = useState("");
+  const [lines, setLines] = useState(0);
+  const [days, setDays] = useState(0);
   const [isApproved, setIsApproved] = useState(false);
 
   // Funkce pro výpočet celkového počtu řádků za den
@@ -26,19 +26,17 @@ function FormProject({ data }) {
   };
 
   const handleChange = (event) => {
-    const value = Number(event.target.value);
     switch (event.target.id) {
       case "lines":
-        setLines(value);
+        setLines(event.target.value);
         break;
       case "days":
-        setDays(value);
+        setDays(event.target.value);
         break;
       default:
         break;
     }
   };
-
   useEffect(() => {
     const totalLinesPerDay = getTotalLinesPerDay();
     if (lines > 0 && days > 0) {
@@ -72,6 +70,7 @@ function FormProject({ data }) {
               id="lines"
               onChange={handleChange}
               value={lines}
+              min={0}
             />
           </div>
           <div className="col d-flex align-items-center gap-3">
@@ -85,6 +84,7 @@ function FormProject({ data }) {
               id="days"
               onChange={handleChange}
               value={days}
+              min={0}
             />
             <button
               type="button"
