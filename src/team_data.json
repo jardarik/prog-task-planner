@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "name": "Jan Novak",
+    "level": "senior"
+  },
+  {
+    "id": 2,
+    "name": "Petra Svobodová",
+    "level": "junior"
+  },
+  {
+    "id": 3,
+    "name": "Martin Dvořák",
+    "level": "senior"
+  },
+  {
+    "id": 4,
+    "name": "Eva Černá",
+    "level": "junior"
+  }
+]
