@@ -8,7 +8,7 @@ import FormProject from "./components/FormProject";
 
 function App() {
   const [teamData, setTeamData] = useState(jsonData);
-  const [showForm, setShowForm] = useState("form-add");
+  // const [showForm, setShowForm] = useState("form-add");
   // const [newProg, setNewProg] = useState("");
   const [activeTab, setActiveTab] = useState("tab1");
 
@@ -69,7 +69,7 @@ function App() {
       </div>
 
       {/* Team list and formadd */}
-      <div className="row border border-top-0 p-2 p-md-5">
+      <div className="row border border-top-0 p-2 p-md-5 rounded-bottom-3">
         {activeTab === "tab1" && (
           <>
             <FormAdd handleAddProg={handleAddProg} />

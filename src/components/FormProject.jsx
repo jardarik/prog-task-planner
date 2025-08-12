@@ -47,7 +47,7 @@ function FormProject({ data }) {
   }, [lines, days, data]);
 
   return (
-    <form>
+    <form className="p-0">
       <fieldset className="border rounded p-3">
         <div className="row mb-3">
           <div className="col text-center">
