@@ -26,10 +26,12 @@ function FormAdd({ handleAddProg }) {
 
       <form onSubmit={handleSubmit}>
         <fieldset className="border rounded p-3">
-          <legend>Přidání nového programátora</legend>
+          <legend className="h3 text-center mb-3">
+            Přidání nového programátora
+          </legend>
           <div className="row">
             {/* input jmeno */}
-            <div className="col d-flex align-items-center gap-3">
+            <div className="col-12 col-md-6 d-flex align-items-center gap-3 mb-3 mb-md-0">
               <label htmlFor="name" className="form-label">
                 Name:
               </label>
@@ -45,7 +47,7 @@ function FormAdd({ handleAddProg }) {
               />
             </div>
             {/* level radio */}
-            <div className="col d-flex align-items-center gap-3">
+            <div className="col-12 col-md-6 d-flex align-items-center gap-3 justify-content-end">
               <div className="form-check">
                 <input
                   className="form-check-input"

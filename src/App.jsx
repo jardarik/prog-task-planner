@@ -73,8 +73,8 @@ function App() {
       <div className="row my-3">
         {showForm === "form-add" && (
           <>
-            <TeamList data={teamData} handleDelete={handleDelete} />
             <FormAdd handleAddProg={handleAddProg} />
+            <TeamList data={teamData} handleDelete={handleDelete} />
           </>
         )}
         {showForm === "form-project" && <FormProject data={teamData} />}

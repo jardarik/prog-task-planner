@@ -59,7 +59,7 @@ function FormProject({ data }) {
         {/* <div className="h2 text-center">Your task</div> */}
         {/* </div> */}
         <div className="row">
-          <div className="col d-flex align-items-center gap-3">
+          <div className="col-12 col-md-5 d-flex align-items-center gap-3 justify-content-end mb-3 mb-md-3">
             <label htmlFor="lines" className="form-label">
               Lines of code:
             </label>
@@ -73,7 +73,7 @@ function FormProject({ data }) {
               min={0}
             />
           </div>
-          <div className="col d-flex align-items-center gap-3">
+          <div className="col-12 col-md-5 d-flex align-items-center justify-content-end gap-3 mb-3 mb-md-3">
             <label htmlFor="days" className="form-label">
               Time limit [days]:
             </label>
@@ -86,6 +86,8 @@ function FormProject({ data }) {
               value={days}
               min={0}
             />
+          </div>
+          <div className="col-12 col-md-2 d-flex align-items-center gap-3 justify-content-end mb-3 mb-md-3">
             <button
               type="button"
               className={`btn ${

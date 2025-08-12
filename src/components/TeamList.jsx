@@ -9,9 +9,9 @@ function TeamList({ data, handleDelete }) {
           <table className="table table-striped table-hover">
             <thead className="table-dark">
               <tr>
-                <th>Jméno</th>
+                <th>Name</th>
                 <th>Level</th>
-                <th>Akce</th>
+                <th>Delete</th>
               </tr>
             </thead>
             <tbody>
