@@ -32,44 +32,37 @@ function App() {
     setTeamData(temp);
   };
 
-  const handleOnClick = (event) => {
-    if (event.target.id === "btn-add") {
-      setShowForm("form-add");
-    } else if (event.target.id === "btn-project") {
-      setShowForm("form-project");
-    }
-  };
-
   return (
-    <div className="container">
+    <div className="container py-4">
       {/* hlavička */}
-      <div className="row text-center my-3">
-        <div className="h1">Your app for handling project</div>
-      </div>
-      {/* navigace  */}
-      <div className="row">
-        <ul className="nav nav-tabs">
-          <li className="nav-item">
-            <button
-              className={`nav-link ${activeTab === "tab1" ? "active" : ""}`}
-              onClick={() => setActiveTab("tab1")}
-            >
-              List of programmers
-            </button>
-          </li>
-          <li className="nav-item">
-            <button
-              className={`nav-link ${activeTab === "tab2" ? "active" : ""}`}
-              onClick={() => setActiveTab("tab2")}
-            >
-              Planning tasks
-            </button>
-          </li>
-        </ul>
-      </div>
+      <h1 className="text-center mb-4">Your app for handling project</h1>
 
-      {/* Team list and formadd */}
-      <div className="row border border-top-0 p-2 p-md-5 rounded-bottom-3">
+      {/* navigace  */}
+      <ul className="nav nav-tabs mb-0 justify-content-center border-bottom-0">
+        <li className="nav-item">
+          <button
+            className={`nav-link ${
+              activeTab === "tab1" ? "active bg-light" : ""
+            }`}
+            onClick={() => setActiveTab("tab1")}
+          >
+            List of programmers
+          </button>
+        </li>
+        <li className="nav-item">
+          <button
+            className={`nav-link ${
+              activeTab === "tab2" ? "active bg-light" : ""
+            }`}
+            onClick={() => setActiveTab("tab2")}
+          >
+            Planning tasks
+          </button>
+        </li>
+      </ul>
+
+      {/* Content area */}
+      <div className="border border-top p-4 rounded-3 bg-light">
         {activeTab === "tab1" && (
           <>
             <FormAdd handleAddProg={handleAddProg} />

@@ -21,74 +21,60 @@ function FormAdd({ handleAddProg }) {
   };
 
   return (
-    <div className="container-fluid p-0">
-      {/* formular pro pridani programatora do team */}
-
-      <form onSubmit={handleSubmit}>
-        <fieldset className="border rounded p-3">
-          <legend className="h3 text-center mb-3">Add new programmer</legend>
-          <div className="row">
-            {/* input jmeno */}
-            <div className="col-12 col-md-6 d-flex align-items-center gap-3 mb-3 mb-md-0">
-              <label htmlFor="name" className="form-label">
-                Name:
-              </label>
-              <input
-                type="text"
-                className="form-control"
-                name="name"
-                id="name"
-                aria-describedby="name"
-                placeholder=""
-                onChange={handleNameChange}
-                value={progName}
-              />
-            </div>
-            {/* level radio */}
-            <div className="col-12 col-md-6 d-flex align-items-center gap-3 justify-content-end">
-              <div className="form-check">
-                <input
-                  className="form-check-input"
-                  type="radio"
-                  name="level"
-                  id="radioJunior"
-                  value="junior"
-                  checked={levelCheck === "junior"}
-                  onChange={() => setLevelCheck("junior")}
-                />
-                <label className="form-check-label" htmlFor="radioJunior">
-                  Junior
-                </label>
-              </div>
-              <div className="form-check">
-                <input
-                  className="form-check-input"
-                  type="radio"
-                  name="level"
-                  id="radioSenior"
-                  value="senior"
-                  checked={levelCheck === "senior"}
-                  onChange={() => setLevelCheck("senior")}
-                />
-                <label className="form-check-label" htmlFor="radioSenior">
-                  Senior
-                </label>
-              </div>
-
-              {/* add button */}
-              <button
-                type="submit"
-                className="btn btn-primary"
-                name="addProg"
-                id="addProg"
-              >
-                Add
-              </button>
-            </div>
+    <form onSubmit={handleSubmit} className="mb-4">
+      <fieldset className="border rounded-3 p-3 bg-white">
+        <legend className="h4 text-center mb-3">Add new programmer</legend>
+        <div className="row g-3">
+          <div className="col-12 col-md-6">
+            <label htmlFor="name" className="form-label">
+              Name:
+            </label>
+            <input
+              type="text"
+              className="form-control"
+              name="name"
+              id="name"
+              onChange={handleNameChange}
+              value={progName}
+              placeholder="Enter programmer name"
+            />
           </div>
-        </fieldset>
-      </form>
-    </div>
+          <div className="col-12 col-md-6 d-flex align-items-end gap-3 justify-content-md-end ">
+            <div className="form-check">
+              <input
+                className="form-check-input"
+                type="radio"
+                name="level"
+                id="radioJunior"
+                value="junior"
+                checked={levelCheck === "junior"}
+                onChange={() => setLevelCheck("junior")}
+              />
+              <label className="form-check-label" htmlFor="radioJunior">
+                Junior
+              </label>
+            </div>
+            <div className="form-check">
+              <input
+                className="form-check-input"
+                type="radio"
+                name="level"
+                id="radioSenior"
+                value="senior"
+                checked={levelCheck === "senior"}
+                onChange={() => setLevelCheck("senior")}
+              />
+              <label className="form-check-label" htmlFor="radioSenior">
+                Senior
+              </label>
+            </div>
+            <button type="submit" className="btn w-100 btn-primary px-3">
+              Add
+            </button>
+          </div>
+        </div>
+      </fieldset>
+    </form>
   );
 }
 

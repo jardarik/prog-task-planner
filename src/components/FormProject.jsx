@@ -47,55 +47,48 @@ function FormProject({ data }) {
   }, [lines, days, data]);
 
   return (
-    <form className="p-0">
-      <fieldset className="border rounded p-3">
-        <div className="row mb-3">
-          <div className="col text-center">
-            <legend className="h3">Your task</legend>
-          </div>
-        </div>
-
-        {/* <div className="col"> */}
-        {/* <div className="h2 text-center">Your task</div> */}
-        {/* </div> */}
-        <div className="row">
-          <div className="col-12 col-md-5 d-flex align-items-center gap-3 justify-content-end mb-3 mb-md-3">
+    <form>
+      <fieldset className="border rounded-3 p-3 bg-white">
+        <legend className="h4 text-center mb-4">Your task</legend>
+        <div className="row g-3">
+          <div className="col-12 col-md-5">
             <label htmlFor="lines" className="form-label">
               Lines of code:
             </label>
             <input
               type="number"
-              className="form-control w-25"
+              className="form-control"
               name="lines"
               id="lines"
               onChange={handleChange}
               value={lines}
               min={0}
+              placeholder="0"
             />
           </div>
-          <div className="col-12 col-md-5 d-flex align-items-center justify-content-end gap-3 mb-3 mb-md-3">
+          <div className="col-12 col-md-5">
             <label htmlFor="days" className="form-label">
               Time limit [days]:
             </label>
             <input
               type="number"
-              className="form-control w-25"
+              className="form-control"
               name="days"
               id="days"
               onChange={handleChange}
               value={days}
               min={0}
+              placeholder="0"
             />
           </div>
-          <div className="col-12 col-md-2 d-flex align-items-center gap-3 justify-content-end mb-3 mb-md-3">
+          <div className="col-12 col-md-2 d-flex align-items-end">
             <button
               type="button"
-              className={`btn ${
-                isApproved === true ? "btn-success" : "btn-danger disabled"
+              className={`btn w-100 ${
+                isApproved ? "btn-success" : "btn-danger"
               }`}
               onClick={handleOnClick}
-              id="doit"
-              name="doit"
+              disabled={!isApproved}
             >
               Do it
             </button>
