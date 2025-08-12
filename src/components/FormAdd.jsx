@@ -21,14 +21,12 @@ function FormAdd({ handleAddProg }) {
   };
 
   return (
-    <div className="container-fluid">
+    <div className="container-fluid p-0">
       {/* formular pro pridani programatora do team */}
 
       <form onSubmit={handleSubmit}>
         <fieldset className="border rounded p-3">
-          <legend className="h3 text-center mb-3">
-            Přidání nového programátora
-          </legend>
+          <legend className="h3 text-center mb-3">Add new programmer</legend>
           <div className="row">
             {/* input jmeno */}
             <div className="col-12 col-md-6 d-flex align-items-center gap-3 mb-3 mb-md-0">

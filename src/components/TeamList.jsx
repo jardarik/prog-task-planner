@@ -2,7 +2,7 @@ import React from "react";
 
 function TeamList({ data, handleDelete }) {
   return (
-    <div className="container">
+    <div className="container-fluid p-0">
       <div className="row">
         <div className="h3 text-center my-3">Your team</div>
         <div className="table-responsive rounded-3 overflow-hidden mb-3">

@@ -10,6 +10,7 @@ function App() {
   const [teamData, setTeamData] = useState(jsonData);
   const [showForm, setShowForm] = useState("form-add");
   // const [newProg, setNewProg] = useState("");
+  const [activeTab, setActiveTab] = useState("tab1");
 
   const handleDelete = (idToDel) => {
     const temp = teamData.filter((item) => item.id !== idToDel);
@@ -44,40 +45,38 @@ function App() {
       {/* hlavička */}
       <div className="row text-center my-3">
         <div className="h1">Your app for handling project</div>
-        <div className="h2">Toggle view</div>
       </div>
       {/* navigace  */}
-      <div className="row my-3">
-        <div className="d-flex gap-2 flex justify-content-center">
-          <button
-            type="button"
-            className="btn btn-primary"
-            name="btn-add"
-            id="btn-add"
-            onClick={handleOnClick}
-          >
-            List of programmers
-          </button>
-          <button
-            type="button"
-            className="btn btn-primary"
-            name="btn-project"
-            id="btn-project"
-            onClick={handleOnClick}
-          >
-            Form for planning tasks
-          </button>
-        </div>
+      <div className="row">
+        <ul className="nav nav-tabs">
+          <li className="nav-item">
+            <button
+              className={`nav-link ${activeTab === "tab1" ? "active" : ""}`}
+              onClick={() => setActiveTab("tab1")}
+            >
+              List of programmers
+            </button>
+          </li>
+          <li className="nav-item">
+            <button
+              className={`nav-link ${activeTab === "tab2" ? "active" : ""}`}
+              onClick={() => setActiveTab("tab2")}
+            >
+              Planning tasks
+            </button>
+          </li>
+        </ul>
       </div>
+
       {/* Team list and formadd */}
-      <div className="row my-3">
-        {showForm === "form-add" && (
+      <div className="row border border-top-0 p-2 p-md-5">
+        {activeTab === "tab1" && (
           <>
             <FormAdd handleAddProg={handleAddProg} />
             <TeamList data={teamData} handleDelete={handleDelete} />
           </>
         )}
-        {showForm === "form-project" && <FormProject data={teamData} />}
+        {activeTab === "tab2" && <FormProject data={teamData} />}
       </div>
     </div>
   );
