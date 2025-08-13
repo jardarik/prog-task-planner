@@ -1,9 +1,15 @@
+// Komponenta pro zobrazení seznamu programátorů v týmu
+// Zobrazuje tabulku s jmény, úrovní a tlačítkem pro smazání
 import React from "react";
 
 function TeamList({ data, handleDelete }) {
+  // data: pole programátorů (id, name, level)
+  // handleDelete: funkce pro smazání programátora podle id
   return (
     <div className="mb-4">
+      {/* Nadpis sekce týmu */}
       <h4 className="text-center mb-3">Your team</h4>
+      {/* Tabulka s týmem, responsivní a zaoblená */}
       <div className="table-responsive rounded-3 overflow-hidden">
         <table className="table table-striped table-hover mb-0">
           <thead className="table-dark">
@@ -14,9 +20,12 @@ function TeamList({ data, handleDelete }) {
             </tr>
           </thead>
           <tbody>
+            {/* Výpis všech programátorů v týmu */}
             {data.map((item) => (
               <tr key={item.id}>
+                {/* Jméno programátora */}
                 <td>{item.name}</td>
+                {/* Úroveň programátora jako barevný badge */}
                 <td>
                   <span
                     className={`badge ${
@@ -26,6 +35,7 @@ function TeamList({ data, handleDelete }) {
                     {item.level}
                   </span>
                 </td>
+                {/* Tlačítko pro smazání programátora */}
                 <td>
                   <button
                     className="btn btn-danger btn-sm"
