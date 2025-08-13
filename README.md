@@ -46,4 +46,4 @@ Aplikace pro plánování projektů a správu týmu programátorů. Postaveno v 
 
 ## Autor
 
-Jarda Rychtařík
+Jardarik
